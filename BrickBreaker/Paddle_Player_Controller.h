@@ -6,7 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "Paddle_Player_Controller.generated.h"
 
-//class ABall
+class ABall;
 
 UCLASS()
 class BRICKBREAKER_API APaddle_Player_Controller : public APlayerController
@@ -26,4 +26,19 @@ protected:
 
 	// Below is ball references varaibles
 	
+	void Launch();
+
+	UPROPERTY(EditAnywhere)
+		TSubclassOf<ABall> BallObj;
+
+	ABall* MyBall;
+
+	FVector SpawnLocation = FVector(10.0f, 0.0f, 40.0f);
+	FRotator SpawnRotation = FRotator(0.0f, 0.0f, 0.0f);
+	FActorSpawnParameters SpawnInfo;
+
+public:
+
+	void SpawnNewBall();
+
 };

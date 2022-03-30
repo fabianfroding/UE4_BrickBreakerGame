@@ -55,5 +55,6 @@ void APaddle_Player_Controller::SpawnNewBall()
 	if (BallObj)
 	{
 		MyBall = GetWorld()->SpawnActor<ABall>(BallObj, SpawnLocation, SpawnRotation, SpawnInfo);
+		MyBall->Tags.Add(FName("Ball"));
 	}
 }
